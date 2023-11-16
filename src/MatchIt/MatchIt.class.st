@@ -79,10 +79,8 @@ MatchIt class >> menuLevel [
 		(ToImage inner: (Smalltalk ui icons iconNamed: #solidMenu)).
 	menu addItem:
 		((ToButtonMenuItem new labelText: 'Basic') whenClickedDo: [
-			 MtBoardElement  basiclevel ]).
-		menu addItem:
-		((ToButtonMenuItem new labelText: 'Medium') whenClickedDo: [
-			 MtBoardElement  mediumlevel ]).
+			 MtBoardElement  basicLevel ]).
+
 	menu addItem:
 		((ToButtonMenuItem new labelText: 'Advanced') whenClickedDo: [
 			 MtBoardElement advancedLevel ]).
@@ -97,18 +95,21 @@ MatchIt class >> open [
 	helpMenu := self menuHelp.
 	bar := self menuBar.
 	message := self openMsg.
+
 	bar addMenu: startMenu.
 	bar addMenu: helpMenu.
 	space := BlSpace new.
 
+	space root addChild: message.
 	space root addChild: bar.
 	space extent: 400 @ 400.
 	space show
 
+
 ]
 
 { #category : #'instance creation' }
-MatchIt class >> openMsg [ [
+MatchIt class >> openMsg [ 
 
 	| msg |
 	msg := BlElement new background: Color lightOrange.
@@ -122,20 +123,5 @@ MatchIt class >> openMsg [ [
 			 c frame horizontal alignCenter.
 			 c frame vertical alignCenter ]).
 	^ msg
-]
-]
 
-{ #category : #accessing }
-MatchIt class >> title [
-
-	| title |
-	title := BlElement new size: 50 @ 200.
-	title constraintsDo: [ :c | c horizontal matchParent ].
-	title layout: BlFrameLayout new.
-	title addChild: ((BlTextElement new text: ('MatchIt' asRopedText
-				   fontName: 'Phosphate';
-				   fontSize: 100)) constraintsDo: [ :c |
-			 c frame horizontal alignCenter.
-			 c frame vertical alignCenter ]).
-	^ title
 ]

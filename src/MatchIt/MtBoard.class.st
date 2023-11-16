@@ -25,13 +25,13 @@ MtBoard class >> level01 [
 ]
 
 { #category : #'as yet unclassified' }
-MtBoard class >> level02 [ [
+MtBoard class >> level02 [ 
 
 	^ self createBoardMatrix: (CTNewArray2D
 			   width: 13
 			   height: 10
 			   tabulate: [ :column :row | MtBoxes randomLaunch ])
-]
+
 ]
 
 { #category : #initialization }
