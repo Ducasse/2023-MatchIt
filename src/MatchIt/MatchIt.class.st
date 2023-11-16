@@ -79,13 +79,13 @@ MatchIt class >> menuLevel [
 		(ToImage inner: (Smalltalk ui icons iconNamed: #solidMenu)).
 	menu addItem:
 		((ToButtonMenuItem new labelText: 'Basic') whenClickedDo: [
-			 MygMtBoardElement  basiclevel ]).
+			 MtBoardElement  basiclevel ]).
 		menu addItem:
 		((ToButtonMenuItem new labelText: 'Medium') whenClickedDo: [
-			 MygMtBoardElement  mediumlevel ]).
+			 MtBoardElement  mediumlevel ]).
 	menu addItem:
 		((ToButtonMenuItem new labelText: 'Advanced') whenClickedDo: [
-			 MygMtBoardElement advancedLevel ]).
+			 MtBoardElement advancedLevel ]).
 	^ menu
 
 ]
