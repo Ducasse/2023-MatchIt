@@ -8,6 +8,15 @@ Class {
 	#category : #MatchIt
 }
 
+{ #category : #'as yet unclassified' }
+MtBoxes class >> randomLaunch [
+	^{
+			BlueBox.
+			GreenBox.
+			MagentaBox.
+			RedBox.} atRandom new 
+]
+
 { #category : #accessing }
 MtBoxes >> color [
 	SubclassResponsibility 
