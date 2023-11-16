@@ -40,6 +40,22 @@ MtBoxesElement >> board: aBoard [
 	self size: 60 @ 60
 ]
 
+{ #category : #'as yet unclassified' }
+MtBoxesElement >> bottmBox [ 
+
+	^ self board grid
+		  atColumn: self positionBoard x
+		  atRow: self positionBoard y + 1
+]
+
+{ #category : #'as yet unclassified' }
+MtBoxesElement >> bottomBox [ 
+
+	^ self board grid
+		  atColumn: self positionBoard x
+		  atRow: self positionBoard y + 1
+]
+
 { #category : #accessing }
 MtBoxesElement >> box [
 
@@ -62,6 +78,21 @@ MtBoxesElement >> initialize [
 	"self addEventHandlerOn: BlMouseUpEvent do: [ :anEvent | self clickk ]"
 ]
 
+{ #category : #'as yet unclassified' }
+MtBoxesElement >> leftBox [ 
+	^ self board grid
+		  atColumn: self positionBoard x - 1
+		  atRow: self positionBoard y
+
+]
+
+{ #category : #'as yet unclassified' }
+MtBoxesElement >> onTopBox [ 
+	^ self board grid
+		  atColumn: self positionBoard x 
+		  atRow: self positionBoard y-1
+]
+
 { #category : #accessing }
 MtBoxesElement >> positionBoard [
 
@@ -72,4 +103,11 @@ MtBoxesElement >> positionBoard [
 MtBoxesElement >> positionBoard: aposition [
 
 	positionBoard := aposition
+]
+
+{ #category : #'as yet unclassified' }
+MtBoxesElement >> rightBox [ 
+	^ self board grid
+		  atColumn: self positionBoard  x + 1
+		  atRow: self positionBoard y
 ]
