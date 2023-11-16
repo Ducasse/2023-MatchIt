@@ -5,7 +5,6 @@ Class {
 }
 
 { #category : #accessing }
-BlueBox class >> color [ 
+BlueBox >> color [ 
 ^ Color blue 
-
 ]
