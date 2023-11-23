@@ -9,6 +9,30 @@ Class {
 }
 
 { #category : #'as yet unclassified' }
+MtBoxes class >> createBlue [
+^ BlueBox new.
+
+]
+
+{ #category : #'as yet unclassified' }
+MtBoxes class >> createGreen [
+
+	^ GreenBox new
+]
+
+{ #category : #'as yet unclassified' }
+MtBoxes class >> createMagenta [
+
+	^ MagentaBox   new
+]
+
+{ #category : #'as yet unclassified' }
+MtBoxes class >> createRed [
+
+	^ RedBox  new 
+]
+
+{ #category : #'as yet unclassified' }
 MtBoxes class >> randomLaunch [
 	^{
 			BlueBox.

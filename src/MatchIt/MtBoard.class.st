@@ -34,6 +34,19 @@ MtBoard class >> level02 [
 
 ]
 
+{ #category : #'as yet unclassified' }
+MtBoard class >> mat2x2 [
+
+	| matrix |
+	matrix := CTNewArray2D width: 2 height: 2.
+	matrix at: 1 @ 1 put: MtBoxes createGreen.
+	matrix at: 1 @ 2 put: MtBoxes createMagenta.
+	matrix at: 2 @ 1 put: MtBoxes createRed.
+	matrix at: 2 @ 2 put: MtBoxes createBlue.
+
+	^ self createBoardMatrix: matrix
+]
+
 { #category : #initialization }
 MtBoard >> clickOnBox: box [ 
 

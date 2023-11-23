@@ -49,7 +49,6 @@ MtBoardElement >> board: aBoard [
 
 	board := aBoard.
 	self padding: (BlInsets all: 5).
-
 	self layout columnCount: board width.
 	board grid do: [ :aBox |
 		| boxElm |
