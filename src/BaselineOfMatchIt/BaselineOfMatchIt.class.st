@@ -19,7 +19,7 @@ BaselineOfMatchIt >> baseline: spec [
 		
 	spec baseline: 'Myg' with: [
 		spec repository:
-			'github://Ducasse/Myg:v1.0.1/src' ].
+			'github://Ducasse/Myg/src' ].
 	spec
 		package: 'MatchIt'
 		with: [ spec requires: #( 'Bloc' 'Myg' 'ContainersArray2D' ) ];
