@@ -12,3 +12,8 @@ Metacello new
     repository: 'github.com/Lynag16/MatchIt/src';
     load.
 ```
+These images represent the main inetrfaces we created : 
+
+![](images/Screenshot%20(725).png) 
+![](images/Screenshot%20(724).png) 
+![](images/Screenshot%20(722).png) 
