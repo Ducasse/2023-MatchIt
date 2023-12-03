@@ -1,7 +1,7 @@
 Class {
 	#name : #RedBox,
-	#superclass : #MtBoxes,
-	#category : #MatchIt
+	#superclass : #MtBox,
+	#category : #'MatchIt-Model'
 }
 
 { #category : #accessing }

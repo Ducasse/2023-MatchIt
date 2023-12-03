@@ -1,47 +1,47 @@
 Class {
-	#name : #MtBoxesElement,
+	#name : #MtBoxElement,
 	#superclass : #BlElement,
 	#instVars : [
 		'board',
 		'box',
 		'positionBoard'
 	],
-	#category : #MatchIt
+	#category : #'MatchIt-UI'
 }
 
 { #category : #'as yet unclassified' }
-MtBoxesElement class >> createWithBox: anMtBoxes [
+MtBoxElement class >> createWithBox: anMtBoxes [
 
 	^ self new box: anMtBoxes
 ]
 
 { #category : #accessing }
-MtBoxesElement >> back [
+MtBoxElement >> back [
 
 	^ self background
 ]
 
 { #category : #accessing }
-MtBoxesElement >> back: aColor [
+MtBoxElement >> back: aColor [
 
 	self background: aColor
 ]
 
 { #category : #accessing }
-MtBoxesElement >> board [
+MtBoxElement >> board [
 
 	^ board
 ]
 
 { #category : #accessing }
-MtBoxesElement >> board: aBoard [
+MtBoxElement >> board: aBoard [
 
 	board := aBoard.
 	self size: 60 @ 60
 ]
 
 { #category : #'as yet unclassified' }
-MtBoxesElement >> bottmBox [ 
+MtBoxElement >> bottmBox [ 
 
 	^ self board grid
 		  atColumn: self positionBoard x
@@ -49,7 +49,7 @@ MtBoxesElement >> bottmBox [
 ]
 
 { #category : #'as yet unclassified' }
-MtBoxesElement >> bottomBox [ 
+MtBoxElement >> bottomBox [ 
 
 	^ self board grid
 		  atColumn: self positionBoard x
@@ -57,29 +57,50 @@ MtBoxesElement >> bottomBox [
 ]
 
 { #category : #accessing }
-MtBoxesElement >> box [
+MtBoxElement >> box [
 
 	^ box
 ]
 
 { #category : #accessing }
-MtBoxesElement >> box: anMtBoxes [
+MtBoxElement >> box: anMtBoxes [
 
 	box := anMtBoxes
 ]
 
+{ #category : #'as yet unclassified' }
+MtBoxElement >> clickk [
+
+	| list |
+	list := OrderedCollection new.
+	(self box hasSameColorAs: self onTopBox) ifTrue: [
+		list add: self onTopBox surface.
+		"self onTopBox surface clickk" ].
+	(self box hasSameColorAs: self rightBox) ifTrue: [
+		list add: self rightBox surface.
+		"self rightBox surface clickk" ].
+	(self box hasSameColorAs: self leftBox) ifTrue: [
+		list add: self leftBox surface.
+		"self leftBox surface clickk" ].
+	(self box hasSameColorAs: self bottmBox) ifTrue: [
+		list add: self bottmBox surface.
+		"self bottmBox surface clickk" ].
+	list ifNotEmpty: [ list add: self ].
+	self parent removeChildren: list
+]
+
 { #category : #initialization }
-MtBoxesElement >> initialize [
+MtBoxElement >> initialize [
 
 	super initialize.
 
 	self geometry: BlCircleGeometry new.
 	self clipChildren: false.
-	"self addEventHandlerOn: BlMouseUpEvent do: [ :anEvent | self clickk ]"
+	self addEventHandlerOn: BlMouseUpEvent do: [ :anEvent | self clickk ]
 ]
 
 { #category : #'as yet unclassified' }
-MtBoxesElement >> leftBox [ 
+MtBoxElement >> leftBox [ 
 	^ self board grid
 		  atColumn: self positionBoard x - 1
 		  atRow: self positionBoard y
@@ -87,26 +108,26 @@ MtBoxesElement >> leftBox [
 ]
 
 { #category : #'as yet unclassified' }
-MtBoxesElement >> onTopBox [ 
+MtBoxElement >> onTopBox [ 
 	^ self board grid
 		  atColumn: self positionBoard x 
 		  atRow: self positionBoard y-1
 ]
 
 { #category : #accessing }
-MtBoxesElement >> positionBoard [
+MtBoxElement >> positionBoard [
 
 	^ positionBoard
 ]
 
 { #category : #accessing }
-MtBoxesElement >> positionBoard: aposition [
+MtBoxElement >> positionBoard: aposition [
 
 	positionBoard := aposition
 ]
 
 { #category : #'as yet unclassified' }
-MtBoxesElement >> rightBox [ 
+MtBoxElement >> rightBox [ 
 	^ self board grid
 		  atColumn: self positionBoard  x + 1
 		  atRow: self positionBoard y

@@ -1,7 +1,7 @@
 Class {
 	#name : #MtBoard,
 	#superclass : #MygBoard,
-	#category : #MatchIt
+	#category : #'MatchIt-Model'
 }
 
 { #category : #'as yet unclassified' }
@@ -19,7 +19,7 @@ MtBoard class >> level01 [
 	^ self createBoardMatrix: (CTNewArray2D
 			   width: 7
 			   height: 5
-			   tabulate: [ :column :row | MtBoxes randomLaunch ])
+			   tabulate: [ :column :row | MtBox randomLaunch ])
 
 
 ]
@@ -30,7 +30,7 @@ MtBoard class >> level02 [
 	^ self createBoardMatrix: (CTNewArray2D
 			   width: 13
 			   height: 10
-			   tabulate: [ :column :row | MtBoxes randomLaunch ])
+			   tabulate: [ :column :row | MtBox randomLaunch ])
 
 ]
 
@@ -39,10 +39,10 @@ MtBoard class >> mat2x2 [
 
 	| matrix |
 	matrix := CTNewArray2D width: 2 height: 2.
-	matrix at: 1 @ 1 put: MtBoxes createGreen.
-	matrix at: 1 @ 2 put: MtBoxes createMagenta.
-	matrix at: 2 @ 1 put: MtBoxes createRed.
-	matrix at: 2 @ 2 put: MtBoxes createBlue.
+	matrix at: 1 @ 1 put: MtBox createGreen.
+	matrix at: 1 @ 2 put: MtBox createMagenta.
+	matrix at: 2 @ 1 put: MtBox createRed.
+	matrix at: 2 @ 2 put: MtBox createBlue.
 
 	^ self createBoardMatrix: matrix
 ]

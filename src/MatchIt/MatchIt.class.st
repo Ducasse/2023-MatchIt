@@ -1,7 +1,7 @@
 Class {
 	#name : #MatchIt,
 	#superclass : #Object,
-	#category : #MatchIt
+	#category : #'MatchIt-Model'
 }
 
 { #category : #'as yet unclassified' }

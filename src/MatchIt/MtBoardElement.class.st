@@ -4,7 +4,7 @@ Class {
 	#instVars : [
 		'board'
 	],
-	#category : #MatchIt
+	#category : #'MatchIt-UI'
 }
 
 { #category : #'as yet unclassified' }
@@ -52,7 +52,7 @@ MtBoardElement >> board: aBoard [
 	self layout columnCount: board width.
 	board grid do: [ :aBox |
 		| boxElm |
-		boxElm := (MtBoxesElement createWithBox: aBox)
+		boxElm := (MtBoxElement createWithBox: aBox)
 			          board: aBoard;
 			          back: aBox color;
 			          positionBoard: aBox position.
