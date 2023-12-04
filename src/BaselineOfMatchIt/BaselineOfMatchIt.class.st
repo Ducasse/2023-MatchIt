@@ -6,7 +6,6 @@ Class {
 
 { #category : #baselines }
 BaselineOfMatchIt >> baseline: spec [
-
 	<baseline>
 	spec
 		baseline: 'Toplo'
@@ -20,6 +19,7 @@ BaselineOfMatchIt >> baseline: spec [
 	spec baseline: 'ContainersArray2D' with: [
 		spec repository:
 			'github://pharo-containers/Containers-Array2D:master/src' ].
+
 
 	spec
 		package: 'MygCore'
