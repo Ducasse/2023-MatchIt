@@ -20,12 +20,16 @@ BaselineOfMatchIt >> baseline: spec [
 	spec baseline: 'ContainersArray2D' with: [
 		spec repository:
 			'github://pharo-containers/Containers-Array2D:master/src' ].
+		
+	spec baseline: 'Myg' with: [
+		spec repository:
+			'github://Ducasse/Myg:v1.0.1/src' ].
 
 	spec
 		package: 'MygCore'
 		with: [ spec requires: #( 'Bloc' 'Toplo' 'ContainersArray2D' ) ];
-		package: 'MygCore-Tests' with: [ spec requires: #( 'MygCore' ) ];
-		package: 'MatchIt' with: [ spec requires: #( 'MygCore' ) ];
+		package: 'MygCore-Tests' with: [ spec requires: #( 'Myg' ) ];
+		package: 'MatchIt' with: [ spec requires: #( 'Myg' ) ];
 		package: 'MatchIt-Tests'
 		with: [ spec requires: #( 'MatchIt' ) ];
 		package: 'Myg-Compass';
