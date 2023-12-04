@@ -64,14 +64,15 @@ UiTests >> testCheckAllSameColorNeighbors [
   green red magenta blue"
 
 	| box list box1 box2 box3 box4 |
-	box := field grid at: 2 @ 2.
+	box := field grid at: 2 @ 2. "red box in the second color and second row "
 	box1 := field grid at: 2 @ 1.
 	box2 := field grid at: 3 @ 3.
 	box3 := field grid at: 1 @ 3.
 	box4 := field grid at: 4 @ 4.
 
-	list := box checkNeighbors.
-   self assert: list size equals: 6.
+	list := box checkNeighbors. "this should return all the 6 red neighbors "
+	self assert: list size equals: 6.
+	
 	self assert: (list includes: box1).
 	self assert: (list includes: box2).
 	self assert: (list includes: box3).
