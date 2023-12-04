@@ -71,21 +71,6 @@ MtBoxElement >> initialize [
 	self addEventHandlerOn: BlMouseUpEvent do: [ :anEvent | self click ]
 ]
 
-{ #category : #'as yet unclassified' }
-MtBoxElement >> leftBox [ 
-	^ self board grid
-		  atColumn: self positionBoard x - 1
-		  atRow: self positionBoard y
-
-]
-
-{ #category : #'as yet unclassified' }
-MtBoxElement >> onTopBox [ 
-	^ self board grid
-		  atColumn: self positionBoard x 
-		  atRow: self positionBoard y-1
-]
-
 { #category : #accessing }
 MtBoxElement >> positionBoard [
 
@@ -96,11 +81,4 @@ MtBoxElement >> positionBoard [
 MtBoxElement >> positionBoard: aposition [
 
 	positionBoard := aposition
-]
-
-{ #category : #'as yet unclassified' }
-MtBoxElement >> rightBox [ 
-	^ self board grid
-		  atColumn: self positionBoard  x + 1
-		  atRow: self positionBoard y
 ]
