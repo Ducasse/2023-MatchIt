@@ -22,6 +22,7 @@ These images represent the main inetrfaces we created :
 
 ![](images/Screenshot%20(725).png) 
 ![](images/Screenshot%20(724).png) 
-![](images/Screenshot%20(722).png) 
-![image](https://github.com/Lynag16/MatchIt/assets/95236950/1f464299-7168-4020-8649-367517214081)
+![image](https://github.com/Lynag16/MatchIt/assets/95236950/34797db1-f8d0-4726-8ac6-60c960da47fe)
+![image](https://github.com/Lynag16/MatchIt/assets/95236950/bf782394-b0b5-4716-8c45-6aa6d12d035e)
+
 
