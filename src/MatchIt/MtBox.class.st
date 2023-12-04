@@ -45,7 +45,7 @@ MtBox class >> randomLaunch [
 MtBox >> checkNeighbors [
 	" this method continue checking all neighbors of the neighbors of the same color , it uses a similar stack system "
 
-	| stack visited |
+	"| stack visited |
 	stack := OrderedCollection new.
 	visited := OrderedCollection new.
 
@@ -58,7 +58,25 @@ MtBox >> checkNeighbors [
 		neighbors := current sameColorNeighbors.
 		neighbors isNotEmpty ifTrue: [ stack addAll: neighbors ].
 		visited add: current ].
-	^ visited
+	^ visited"
+
+	| stack visited |
+	stack := OrderedCollection new.
+	visited := Set new. "Use a Set to efficiently check for visited nodes."
+
+	stack add: self.
+
+	[ stack isEmpty ] whileFalse: [
+		| current neighbors |
+		current := stack removeLast.
+
+		(visited includes: current) ifFalse: [
+			visited add: current.
+			neighbors := current sameColorNeighbors.
+			neighbors isNotEmpty ifTrue: [  
+			neighbors do: [ :neighbor |
+				(visited includes: neighbor) ifFalse: [ stack add: neighbor ] ] ] ]].
+	^ visited asOrderedCollection
 ]
 
 { #category : #accessing }
@@ -78,14 +96,14 @@ MtBox >> sameColorNeighbors [
 	| neighbors |
 	neighbors := OrderedCollection new.
 
-	#( #( 0 -1 ) #( -1 0 ) #( 1 0 ) ) do: [ :offset |
+	#( #( 0 -1 )  #( 0 1 ) #( -1 0 ) #( 1 0 ) ) do: [ :offset |
 		| newX newY neighbor |
 		newX := self position x + offset first.
 		newY := self position y + offset second.
 
 		((newX between: 1 and: 4) and: (newY between: 1 and: 4)) ifTrue: [
 			neighbor := self board grid atColumn: newX atRow: newY.
-			(neighbor isNotNil and: [ neighbor hasSameColorAs: self ]) ifTrue: [
+			(neighbor isNotNil and: [ self hasSameColorAs: neighbor ]) ifTrue: [
 				neighbors add: neighbor ] ] ].
 
 	^ neighbors

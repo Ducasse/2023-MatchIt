@@ -15,7 +15,7 @@ UiTests >> setUp [
 	matrix := CTNewArray2D width: 4 height: 4.
 	matrix at: 1 @ 1 put: MtBox createGreen.
 	matrix at: 1 @ 2 put: MtBox createGreen.
-	matrix at: 1 @ 3 put: MtBox createGreen.
+	matrix at: 1 @ 3 put: MtBox createRed.
 	matrix at: 1 @ 4 put: MtBox createGreen.
 	matrix at: 2 @ 1 put: MtBox createRed.
 	matrix at: 2 @ 2 put: MtBox createRed.
@@ -60,11 +60,11 @@ self assert: list isNotEmpty .
 UiTests >> testCheckAllSameColorNeighbors [
 
 	| box list box1 box2 box3 box4 |
-	box := field grid at: 3 @ 4.
-	box1 := field grid at: 3 @ 1.
-	box2 := field grid at: 3 @ 2.
-	box3 := field grid at: 3 @ 3.
-	box4 := field grid at: 2 @ 4.
+	box := field grid at: 2 @ 2.
+	box1 := field grid at: 2 @ 1.
+	box2 := field grid at: 2 @ 4.
+	box3 := field grid at: 1 @ 3.
+	box4 := field grid at: 4 @ 4.
 
 	list := box checkNeighbors.
 
