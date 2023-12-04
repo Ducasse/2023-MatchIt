@@ -25,7 +25,8 @@ BaselineOfMatchIt >> baseline: spec [
 		package: 'MygCore'
 		with: [ spec requires: #( 'Bloc' 'Toplo' 'ContainersArray2D' ) ];
 		package: 'MygCore-Tests' with: [ spec requires: #( 'MygCore' ) ];
-		package: 'MatchIt' with: [ spec requires: #( 'MygCore' ) ];
+		package: 'MatchIt' 
+		with: [ spec requires: #( 'MygCore' 'Myg-Compass' ) ];
 		package: 'MatchIt-Tests'
 		with: [ spec requires: #( 'MatchIt' ) ];
 		package: 'Myg-Compass';
