@@ -28,7 +28,7 @@ BaselineOfMatchIt >> baseline: spec [
 	spec
 	
 
-		package: 'MatchIt' with: [ spec requires: #( 'MygCore' ) ];
+		package: 'MatchIt' with: [ spec requires: #( 'Myg' ) ];
 		package: 'MatchIt-Tests'
 		with: [ spec requires: #( 'MatchIt' ) ];
 		package: 'Myg-Compass';
