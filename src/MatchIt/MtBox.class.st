@@ -47,7 +47,7 @@ MtBox >> checkNeighbors [
 
 	| stack visited |
 	stack := OrderedCollection new.
-	visited := Set new. "Use a Set to efficiently check for visited nodes."
+	visited := Set new. "use a Set to efficiently check for visited nodes."
 
 	stack add: self.
 
@@ -80,7 +80,7 @@ MtBox >> sameColorNeighbors [
 
 	| neighbors |
 	neighbors := OrderedCollection new.
-
+   "we use the next set to check for top, right, left and bottom neighbors "
 	#( #( 0 -1 )  #( 0 1 ) #( -1 0 ) #( 1 0 ) ) do: [ :offset |
 		| newX newY neighbor |
 		newX := self position x + offset first.
