@@ -23,7 +23,7 @@ UiTests >> setUp [
 	matrix at: 2 @ 4 put: MtBox createRed.
 	matrix at: 3 @ 1 put: MtBox createMagenta.
 	matrix at: 3 @ 2 put: MtBox createMagenta.
-	matrix at: 3 @ 3 put: MtBox createMagenta.
+	matrix at: 3 @ 3 put: MtBox createRed.
 	matrix at: 3 @ 4 put: MtBox createMagenta.
 	matrix at: 4 @ 1 put: MtBox createBlue.
 	matrix at: 4 @ 2 put: MtBox createBlue.
@@ -58,16 +58,20 @@ self assert: list isNotEmpty .
 
 { #category : #tests }
 UiTests >> testCheckAllSameColorNeighbors [
+	" green red magenta blue 
+  green red magenta blue
+  red   red red     blue
+  green red magenta blue"
 
 	| box list box1 box2 box3 box4 |
 	box := field grid at: 2 @ 2.
 	box1 := field grid at: 2 @ 1.
-	box2 := field grid at: 2 @ 4.
+	box2 := field grid at: 3 @ 3.
 	box3 := field grid at: 1 @ 3.
 	box4 := field grid at: 4 @ 4.
 
 	list := box checkNeighbors.
-
+   self assert: list size equals: 6.
 	self assert: (list includes: box1).
 	self assert: (list includes: box2).
 	self assert: (list includes: box3).
