@@ -18,6 +18,10 @@ Metacello new
     repository: 'github.com/Lynag16/MatchIt/src';
     load.
 ```
+You can open the game to check for interfaces by executing the open method
+```smalltalk
+MatchIt open
+```
 These images represent the main inetrfaces we created : 
 
 ![](images/Screenshot%20(725).png) 
