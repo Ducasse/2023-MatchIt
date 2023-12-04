@@ -42,26 +42,23 @@ MtBox class >> randomLaunch [
 ]
 
 { #category : #'as yet unclassified' }
-MtBox >> checkNeighbors [ 
-|pile visited|
+MtBox >> checkNeighbors [
+	" this method continue checking all neighbors of the neighbors of the same color , it uses a similar stack system "
 
-pile := OrderedCollection  new.
-visited := OrderedCollection  new. 
+	| stack visited |
+	stack := OrderedCollection new.
+	visited := OrderedCollection new.
 
-pile add: self.
+	stack add: self.
 
-[pile isEmpty ] whileFalse: [ 
-	|current neighbors| 
-	current := pile removeLast .
-	
-	neighbors := current sameColorNeighbors .
-	neighbors isNotEmpty ifTrue: [ 
-		pile addAll: neighbors  .
-		 
-		 ].
-	visited add: current.
-	 ].
-^visited
+	[ stack isEmpty ] whileFalse: [
+		| current neighbors |
+		current := stack removeLast.
+
+		neighbors := current sameColorNeighbors.
+		neighbors isNotEmpty ifTrue: [ stack addAll: neighbors ].
+		visited add: current ].
+	^ visited
 ]
 
 { #category : #accessing }
@@ -76,23 +73,22 @@ MtBox >> hasSameColorAs: aColoredBox [
 
 { #category : #'as yet unclassified' }
 MtBox >> sameColorNeighbors [
- | neighbors |
-neighbors := OrderedCollection new.
+	" this method checks all neighbors and return those whose colors are the same "
 
-#((0 -1)  (-1 0) (1 0)) do: [ :offset |
-    | newX newY neighbor |
-    newX := position x + offset first.
-    newY := position y + offset second.
+	| neighbors |
+	neighbors := OrderedCollection new.
 
-    ((newX between: 1 and: 4) and: (newY between: 1 and: 4)) ifTrue: [
-        neighbor := self board grid atColumn: newX atRow: newY.
-        (neighbor isNotNil and: [neighbor hasSameColorAs: self]) ifTrue: [
-            neighbors add: neighbor
-        ]
-    ]
-].
+	#( #( 0 -1 ) #( -1 0 ) #( 1 0 ) ) do: [ :offset |
+		| newX newY neighbor |
+		newX := position x + offset first.
+		newY := position y + offset second.
 
-^ neighbors
+		((newX between: 1 and: 4) and: (newY between: 1 and: 4)) ifTrue: [
+			neighbor := self board grid atColumn: newX atRow: newY.
+			(neighbor isNotNil and: [ neighbor hasSameColorAs: self ]) ifTrue: [
+				neighbors add: neighbor ] ] ].
+
+	^ neighbors
 ]
 
 { #category : #accessing }
