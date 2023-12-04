@@ -80,8 +80,8 @@ MtBox >> sameColorNeighbors [
 
 	#( #( 0 -1 ) #( -1 0 ) #( 1 0 ) ) do: [ :offset |
 		| newX newY neighbor |
-		newX := position x + offset first.
-		newY := position y + offset second.
+		newX := self position x + offset first.
+		newY := self position y + offset second.
 
 		((newX between: 1 and: 4) and: (newY between: 1 and: 4)) ifTrue: [
 			neighbor := self board grid atColumn: newX atRow: newY.
