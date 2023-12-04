@@ -40,22 +40,6 @@ MtBoxElement >> board: aBoard [
 	self size: 60 @ 60
 ]
 
-{ #category : #'as yet unclassified' }
-MtBoxElement >> bottmBox [ 
-
-	^ self board grid
-		  atColumn: self positionBoard x
-		  atRow: self positionBoard y + 1
-]
-
-{ #category : #'as yet unclassified' }
-MtBoxElement >> bottomBox [ 
-
-	^ self board grid
-		  atColumn: self positionBoard x
-		  atRow: self positionBoard y + 1
-]
-
 { #category : #accessing }
 MtBoxElement >> box [
 
@@ -69,24 +53,12 @@ MtBoxElement >> box: anMtBoxes [
 ]
 
 { #category : #'as yet unclassified' }
-MtBoxElement >> clickk [
+MtBoxElement >> click [
+ | neighbors| 
+neighbors := self box checkNeighbors .
+(neighbors size >=2 )ifTrue: [  
+neighbors do: [ :each| (each surface parent) removeChild: each surface ]].
 
-	| list |
-	list := OrderedCollection new.
-	(self box hasSameColorAs: self onTopBox) ifTrue: [
-		list add: self onTopBox surface.
-		"self onTopBox surface clickk" ].
-	(self box hasSameColorAs: self rightBox) ifTrue: [
-		list add: self rightBox surface.
-		"self rightBox surface clickk" ].
-	(self box hasSameColorAs: self leftBox) ifTrue: [
-		list add: self leftBox surface.
-		"self leftBox surface clickk" ].
-	(self box hasSameColorAs: self bottmBox) ifTrue: [
-		list add: self bottmBox surface.
-		"self bottmBox surface clickk" ].
-	list ifNotEmpty: [ list add: self ].
-	self parent removeChildren: list
 ]
 
 { #category : #initialization }
@@ -96,7 +68,7 @@ MtBoxElement >> initialize [
 
 	self geometry: BlCircleGeometry new.
 	self clipChildren: false.
-	self addEventHandlerOn: BlMouseUpEvent do: [ :anEvent | self clickk ]
+	self addEventHandlerOn: BlMouseUpEvent do: [ :anEvent | self click ]
 ]
 
 { #category : #'as yet unclassified' }

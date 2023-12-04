@@ -45,21 +45,6 @@ MtBox class >> randomLaunch [
 MtBox >> checkNeighbors [
 	" this method continue checking all neighbors of the neighbors of the same color , it uses a similar stack system "
 
-	"| stack visited |
-	stack := OrderedCollection new.
-	visited := OrderedCollection new.
-
-	stack add: self.
-
-	[ stack isEmpty ] whileFalse: [
-		| current neighbors |
-		current := stack removeLast.
-
-		neighbors := current sameColorNeighbors.
-		neighbors isNotEmpty ifTrue: [ stack addAll: neighbors ].
-		visited add: current ].
-	^ visited"
-
 	| stack visited |
 	stack := OrderedCollection new.
 	visited := Set new. "Use a Set to efficiently check for visited nodes."
@@ -101,7 +86,7 @@ MtBox >> sameColorNeighbors [
 		newX := self position x + offset first.
 		newY := self position y + offset second.
 
-		((newX between: 1 and: 4) and: (newY between: 1 and: 4)) ifTrue: [
+		((newX between: 1 and: self board grid width) and: (newY between: 1 and: self board grid height)) ifTrue: [
 			neighbor := self board grid atColumn: newX atRow: newY.
 			(neighbor isNotNil and: [ self hasSameColorAs: neighbor ]) ifTrue: [
 				neighbors add: neighbor ] ] ].
