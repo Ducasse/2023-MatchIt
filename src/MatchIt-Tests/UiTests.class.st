@@ -59,9 +59,9 @@ self assert: list isNotEmpty .
 { #category : #tests }
 UiTests >> testCheckAllSameColorNeighbors [
 	" green red magenta blue 
-  green red magenta blue
-  red   red red     blue
-  green red magenta blue"
+     green red magenta blue
+     red   red red     blue
+     green red magenta blue"
 
 	| box list box1 box2 box3 box4 |
 	box := field grid at: 2 @ 2. "red box in the second color and second row "
@@ -72,7 +72,7 @@ UiTests >> testCheckAllSameColorNeighbors [
 
 	list := box checkNeighbors. "this should return all the 6 red neighbors "
 	self assert: list size equals: 6.
-	
+
 	self assert: (list includes: box1).
 	self assert: (list includes: box2).
 	self assert: (list includes: box3).
