@@ -102,7 +102,7 @@ MatchIt class >> open [
 
 	space root addChild: message.
 	space root addChild: bar.
-	space extent: 400 @ 400.
+	space extent: 600 @ 600.
 	space show
 
 
