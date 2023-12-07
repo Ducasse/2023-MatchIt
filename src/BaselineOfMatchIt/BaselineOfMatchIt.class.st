@@ -10,7 +10,7 @@ BaselineOfMatchIt >> baseline: spec [
 	<baseline>
 	spec
 		baseline: 'Myg'
-		with: [ spec repository: 'github://Ducasse/Myg:v1.0.1/src' ].
+		with: [ spec repository: 'github://Ducasse/Myg:v1.0.0/src' ].
 
 	spec
 
