@@ -34,11 +34,13 @@ MtBox class >> createRed [
 
 { #category : #'as yet unclassified' }
 MtBox class >> randomLaunch [
-	^{
-			BlueBox .
-			GreenBox .
-			MagentaBox .
-			RedBox } atRandom new 
+
+	^ {
+		  BlueBox.
+		  GreenBox.
+		  MagentaBox.
+		  RedBox.
+	 } atRandom new
 ]
 
 { #category : #'as yet unclassified' }

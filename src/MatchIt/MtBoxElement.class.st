@@ -54,12 +54,16 @@ MtBoxElement >> box: anMtBoxes [
 
 { #category : #'as yet unclassified' }
 MtBoxElement >> click [
-  "this method will be removed later , tthis is just for checking visually "
+	"this method will be removed later , tthis is just for checking visually "
+
 	| neighbors |
 	neighbors := self box checkNeighbors.
 	neighbors size >= 2 ifTrue: [
 		neighbors do: [ :each |
 			each surface parent removeChild: each surface ] ]
+
+	"self box checkNeighbors.
+	self box board updateBoard: self box checkNeighbors"
 ]
 
 { #category : #initialization }
