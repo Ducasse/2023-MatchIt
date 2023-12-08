@@ -110,6 +110,14 @@ UiTests >> testRandomLaunchLevel01 [
 ]
 
 { #category : #tests }
+UiTests >> testRandomLaunchLevel02 [
+
+	| board |
+	board := MtBoardElement launchWith: MtBoard level02.
+	self assert: board children first children size equals: 256.
+]
+
+{ #category : #tests }
 UiTests >> testRemoveSameColorNeighbors [
 	" green *red magenta blue 
      green *red magenta blue
