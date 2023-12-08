@@ -17,8 +17,8 @@ MtBoard class >> createBoardMatrix: aMatrix [
 MtBoard class >> level01 [ 
 
 	^ self createBoardMatrix: (CTNewArray2D
-			   width: 7
-			   height: 7
+			   width: 9
+			   height: 9
 			   tabulate: [ :column :row | MtBox randomLaunch ])
 
 
@@ -28,8 +28,8 @@ MtBoard class >> level01 [
 MtBoard class >> level02 [ 
 
 	^ self createBoardMatrix: (CTNewArray2D
-			   width: 10
-			   height: 10
+			   width: 16
+			   height: 16
 			   tabulate: [ :column :row | MtBox randomLaunch ])
 
 ]

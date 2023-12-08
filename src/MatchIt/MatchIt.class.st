@@ -102,7 +102,7 @@ MatchIt class >> open [
 
 	space root addChild: message.
 	space root addChild: bar.
-	space extent: 400 @ 400.
+	space extent: 600 @ 600.
 	space show
 
 
@@ -118,7 +118,7 @@ MatchIt class >> openMsg [
 		c vertical matchParent ].
 	msg layout: BlFrameLayout new.
 	msg addChild: ((BlTextElement new text:
-			  ((' Welcome to SameGame Fun!' asRopedText fontName: 'Phosphate')
+			  ((' Welcome to MatchIt SameGame, Have Fun!' asRopedText fontName: 'Phosphate')
 				   fontSize: 30)) constraintsDo: [ :c |
 			 c frame horizontal alignCenter.
 			 c frame vertical alignCenter ]).
