@@ -17,6 +17,7 @@ If you want to play MatchIt: Copy the code below in your pharo playground:
 Metacello new
     baseline: 'MatchIt';
     repository: 'github.com/Lynag16/MatchIt/src';
+    onConflictUseLoaded;
     load.
 ```
 You can open the game to check for interfaces by executing the open method
