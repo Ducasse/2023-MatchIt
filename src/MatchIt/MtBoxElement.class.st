@@ -58,12 +58,10 @@ MtBoxElement >> click [
 
 	| neighbors |
 	neighbors := self box checkNeighbors.
-	neighbors size >= 2 ifTrue: [
+	neighbors size >= 3 ifTrue: [ 
 		neighbors do: [ :each |
 			each surface parent removeChild: each surface ] ]
-
-	"self box checkNeighbors.
-	self box board updateBoard: self box checkNeighbors"
+	
 ]
 
 { #category : #initialization }
