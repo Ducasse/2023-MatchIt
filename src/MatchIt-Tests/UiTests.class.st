@@ -106,7 +106,7 @@ UiTests >> testRandomLaunchLevel01 [
 
 	| board |
 	board := MtBoardElement launchWith: MtBoard level01.
-	self assert: board children first children size equals: 81
+	self assert: board children first children size equals: 81.
 ]
 
 { #category : #tests }
