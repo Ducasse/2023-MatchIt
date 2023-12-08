@@ -33,7 +33,7 @@ MtBoardElement class >> launchWith: model [
 	"Calculate the extent of the game board for the first time, to set it to the window."
 	space pulse.
 	space extent: anElm extent.
-	space resizable: true.
+	space resizable: false.
 	space show.
 	^ space
 ]
