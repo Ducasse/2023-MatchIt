@@ -16,7 +16,7 @@ If you want to play MatchIt: Copy the code below in your pharo playground:
 ```smalltalk
 Metacello new
     baseline: 'MatchIt';
-    repository: 'github.com/Lynag16/MatchIt/src';
+    repository: 'github.com//Lynag16/MatchIt:main';
     onConflictUseLoaded;
     load.
 ```
