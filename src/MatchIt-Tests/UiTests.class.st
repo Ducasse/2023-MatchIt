@@ -110,9 +110,30 @@ UiTests >> testRandomLaunchLevel01 [
 ]
 
 { #category : #tests }
-UiTests >> testRandomLaunchLevel02 [
+UiTests >> testRemoveSameColorNeighbors [
+	" green *red magenta blue 
+     green *red magenta blue
+     *red  *red *red    blue
+     green *red magenta blue"
 
-	| board |
-	board := MtBoardElement launchWith: MtBoard level02.
-	self assert: board children first children size equals: 256.
+	| box neighbors |
+	box := field grid at: 2 @ 1.
+	neighbors := box checkNeighbors.
+	box board replaceBox: neighbors.
+	self assert: (field grid at: 1 @ 3) equals: UncoloredBox.
+	self deny: (field grid at: 4 @ 3) equals: BlueBox
+]
+
+{ #category : #tests }
+UiTests >> testUpdateBoard [
+	" green red magenta blue 
+     green red magenta blue
+     red   red red     blue
+     green red magenta blue"
+
+	| box neighbors |
+	box := field grid at: 2 @ 1.
+	neighbors := box checkNeighbors.
+	
+	
 ]

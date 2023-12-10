@@ -65,6 +65,19 @@ super initialize
 
 ]
 
+{ #category : #'as yet unclassified' }
+MtBoard >> replaceBox: aList [
+
+	aList do: [ :each | self grid at: each position put: UncoloredBox ] 
+]
+
+{ #category : #'as yet unclassified' }
+MtBoard >> updateBoard: aList [
+aList do: [:each| self grid at: each position put: UncoloredBox  ].
+
+
+]
+
 { #category : #initialization }
 MtBoard >> width [ 
 
