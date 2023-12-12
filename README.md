@@ -5,7 +5,7 @@ A samegame Implemented by Agouazi Lynda & CHAMI Nour & Sahnoune Thilleli.
 SameGame is a puzzle game centered around matching tiles. The game board is comprised of a grid featuring colored tiles. 
 The objective is to eliminate as many tiles as feasible by choosing groups of neighboring tiles that share the same color.
  * We completed the first part for identifying all the same color neighbors using a similar stack method
- * We are working on updating the board (make the upper boxes falls).
+ * We are working on updating the board (make the upper boxes fall), and connecting the frontend to the backend.
 
 
 _Note: The repository is currently experiencing issues, and we are actively working to resolve them. 
