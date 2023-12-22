@@ -25,7 +25,7 @@ You can open the game to check for interfaces by executing the open method
 ```smalltalk
 MatchIt open
 ```
-These images represent the main inetrfaces we created : 
+These images represent the main interfaces we created : 
 
 ![](images/Screenshot%20(725).png) 
 ![](images/Screenshot%20(724).png) 
