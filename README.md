@@ -1,5 +1,5 @@
 # MatchIt 
-A samegame Implemented by Agouazi Lynda & CHAMI Nour & Sahnoune Thilleli.
+A samegame Implemented by Agouazi Lynda & Nour CHAMI & Sahnoune Thilleli.
 
 
 SameGame is a puzzle game centered around matching tiles. The game board is comprised of a grid featuring colored tiles. 
@@ -17,7 +17,7 @@ The objective is to eliminate as many tiles as feasible by choosing groups of ne
 * View : for this part We completed the very first and important game View and we are working on linking the changes after updating the board to the game View
 
 # To install
-_Note: The repository is currently experiencing issues, and we are actively working to resolve them. 
+_Note: The repository is currently experiencing issues with the baseline, and we are actively working to resolve them. 
 Kindly utilize GitHub cloning in the Pharo environment to load the game. 
 We appreciate your understanding. Thank you._
 
