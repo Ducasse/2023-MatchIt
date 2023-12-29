@@ -8,3 +8,8 @@ Class {
 GreenBox >> color [ 
 ^Color green
 ]
+
+{ #category : #testing }
+GreenBox >> isGreenBox [
+	^true
+]

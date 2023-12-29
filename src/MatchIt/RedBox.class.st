@@ -14,3 +14,8 @@ RedBox class >> color [
 RedBox >> color [ 
 	^ Color red
 ]
+
+{ #category : #testing }
+RedBox >> isRedBox [
+	^true.
+]

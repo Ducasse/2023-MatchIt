@@ -44,6 +44,27 @@ UiTests >> test2x2MatDifferentColors [
 ]
 
 { #category : #tests }
+UiTests >> testBoardIsEmpty [
+	" green *red magenta blue                                       
+     green *red magenta blue   
+     *red  *red1 *red    blue                                       
+     green *red magenta blue "                                     
+
+	(field grid at: 2 @ 3) click.
+	" green *red magenta blue                                       uncolored uncolored uncolored blue
+     green *red magenta blue    after eliminating the red1 box =>   green     uncolored magenta   blue
+     *red  *red1 *red    blue                                       green     uncolored magenta   blue
+     green *red magenta blue                                       green     uncolored magenta   blue"
+	(field grid at: 1 @ 2) click.
+	"eliminating the green boxes in first column"
+	(field grid at: 3 @ 3) click.
+	"eliminating the magenta boxes in third column"
+	(field grid at: 4 @ 3) click.
+	"eliminating the blue boxes in the forth column"
+	self assert: field isEmpty
+]
+
+{ #category : #tests }
 UiTests >> testBoxSameColorNeighbors [
 |box list box1 box2|
 box := field grid at:2@3.
@@ -119,13 +140,27 @@ UiTests >> testRemoveSameColorNeighbors [
 	| box neighbors |
 	box := field grid at: 2 @ 1.
 	neighbors := box checkNeighbors.
-	box board replaceBox: neighbors.
-	"self assert: (field grid at: 1 @ 3) equals: UncoloredBox."
-	self deny: (field grid at: 4 @ 3) equals: BlueBox
+	box board removeBoxList: neighbors.
+	self assert: (field grid at: 1 @ 3) isUncoloredBox.
+	self deny: (field grid at: 4 @ 3) isUncoloredBox
 ]
 
 { #category : #tests }
-UiTests >> testUpdateBoard [
+UiTests >> testTopBox [
+	" green *red magenta blue 
+     green *red magenta blue
+     *red  *red *red    blue
+     green *red magenta blue"
+
+	| box neighbors |
+	box := field grid at: 2 @ 1.
+	self assert: box topBox isRedBox .
+	self deny: box topBox isBlueBox .
+	
+]
+
+{ #category : #tests }
+UiTests >> testfallingBoxesAfterEliminatingSameColorSiblings [
 	" green *red magenta blue                                       uncolored uncolored uncolored blue
      green *red magenta blue    after eliminating the red box =>   green     uncolored magenta   blue
      *red  *red *red    blue                                       green     uncolored magenta   blue
@@ -133,10 +168,15 @@ UiTests >> testUpdateBoard [
 
 	| box neighbors |
 	box := field grid at: 2 @ 1.
+	self assert: (field grid at: 1 @ 4) topBox isRedBox.
+	self assert: (field grid at: 2 @ 2) isRedBox.
+	self assert: (field grid at: 4 @ 3) isBlueBox.
+
+	"after clicking on the  red box at 2@1 "
 	neighbors := box checkNeighbors.
-	box board replaceBox: neighbors.
+	box board removeBoxList:  neighbors.
 	box board updateBoard.
-	self assert: (field grid at: 1 @ 4) topBox color equals: Color green.
+	self assert: (field grid at: 1 @ 4) topBox isGreenBox.
 	self assert: (field grid at: 2 @ 2) isUncoloredBox.
-	self deny: (field grid at: 4 @ 3) equals: BlueBox
+	self assert: (field grid at: 4 @ 3) isBlueBox
 ]

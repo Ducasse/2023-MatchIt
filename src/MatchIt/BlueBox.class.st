@@ -8,3 +8,8 @@ Class {
 BlueBox >> color [ 
 ^Color blue
 ]
+
+{ #category : #testing }
+BlueBox >> isBlueBox [
+^true
+]

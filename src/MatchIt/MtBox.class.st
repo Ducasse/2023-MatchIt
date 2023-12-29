@@ -49,7 +49,7 @@ MtBox class >> randomLaunch [
 
 { #category : #'as yet unclassified' }
 MtBox >> checkNeighbors [
-	" this method continue checking all neighbors of the neighbors of the same color , it uses a similar stack system "
+	" this method continue checking all neighbors of the neighbors of the same color , it uses a similar stack system, it returns all the boxes with same color who are next to each other "
 
 	| stack visited |
 	stack := OrderedCollection new.
@@ -64,10 +64,16 @@ MtBox >> checkNeighbors [
 		(visited includes: current) ifFalse: [
 			visited add: current.
 			neighbors := current sameColorNeighbors.
-			neighbors isNotEmpty ifTrue: [  
-			neighbors do: [ :neighbor |
-				(visited includes: neighbor) ifFalse: [ stack add: neighbor ] ] ] ]].
+			neighbors isNotEmpty ifTrue: [
+				neighbors do: [ :neighbor |
+					(visited includes: neighbor) ifFalse: [ stack add: neighbor ] ] ] ] ].
 	^ visited asOrderedCollection
+]
+
+{ #category : #public }
+MtBox >> click [ 
+self board removeBoxList: self checkNeighbors .
+self board updateBoard.
 ]
 
 { #category : #accessing }
@@ -87,23 +93,30 @@ MtBox >> hasSameColorAs: aColoredBox [
 ]
 
 { #category : #testing }
+MtBox >> isBlueBox [ 
+^false
+
+]
+
+{ #category : #testing }
 MtBox >> isUncoloredBox [
 ^false
 ]
 
 { #category : #'as yet unclassified' }
 MtBox >> sameColorNeighbors [
-	" this method checks all neighbors and return those whose colors are the same "
+	" this method checks the top, bottom, right and left neighbor of the selected box and return those whose colors are the same "
 
 	| neighbors |
 	neighbors := OrderedCollection new.
-   "we use the next set to check for top, right, left and bottom neighbors "
-	#( #( 0 -1 )  #( 0 1 ) #( -1 0 ) #( 1 0 ) ) do: [ :offset |
+	"we use the next set to check for top, right, left and bottom neighbors "
+	#( #( 0 -1 ) #( 0 1 ) #( -1 0 ) #( 1 0 ) ) do: [ :offset |
 		| newX newY neighbor |
 		newX := self position x + offset first.
 		newY := self position y + offset second.
 
-		((newX between: 1 and: self board grid width) and: (newY between: 1 and: self board grid height)) ifTrue: [
+		((newX between: 1 and: self board grid width) and:
+			 (newY between: 1 and: self board grid height)) ifTrue: [
 			neighbor := self board grid atColumn: newX atRow: newY.
 			(neighbor isNotNil and: [ self hasSameColorAs: neighbor ]) ifTrue: [
 				neighbors add: neighbor ] ] ].
@@ -123,8 +136,11 @@ MtBox >> surface: aBoxElm [
 
 { #category : #'as yet unclassified' }
 MtBox >> topBox [
-
-(((self position x) between: 1 and: self board grid width) and: ((self position y-1) between: 1 and: self board grid height)) ifTrue: 
-[^self board grid atColumn: self position x  atRow: self position y -1 ] 
-
+"return the box on top of the selected box "
+	((self position x between: 1 and: self board grid width) and:
+		 (self position y - 1 between: 1 and: self board grid height))
+		ifTrue: [
+			^ self board grid
+				  atColumn: self position x
+				  atRow: self position y - 1 ]
 ]

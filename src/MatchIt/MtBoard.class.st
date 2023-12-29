@@ -63,15 +63,20 @@ super initialize
 
 ]
 
-{ #category : #'as yet unclassified' }
-MtBoard >> replaceBox: aList [
+{ #category : #testing }
+MtBoard >> isEmpty [
 
-	aList do: [ :each |  
+	^self grid contents anySatisfy: [ :box | box isUncoloredBox ]
+]
+
+{ #category : #'as yet unclassified' }
+MtBoard >> removeBoxList: aList [
+
+	aList do: [ :each |
 		| newBox |
-		
-		 grid at: each position x @each position y put: (UncoloredBox new
-			          position: each position x @each position y;
-			          board: self) .] 
+		grid at: each position x @ each position y put: (UncoloredBox new
+				 position: each position x @ each position y;
+				 board: self) ]
 ]
 
 { #category : #'as yet unclassified' }

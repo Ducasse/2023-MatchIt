@@ -89,9 +89,3 @@ MtBoxElement >> positionBoard: aposition [
 
 	positionBoard := aposition
 ]
-
-{ #category : #'as yet unclassified' }
-MtBoxElement >> updateBackgroundColor [
-
-	self background: (self colorDictionary at: self box value)
-]
