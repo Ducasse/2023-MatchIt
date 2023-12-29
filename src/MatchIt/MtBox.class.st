@@ -3,7 +3,12 @@ Class {
 	#superclass : #MygAbstractBox,
 	#instVars : [
 		'color',
-		'surface'
+		'surface',
+		'value',
+		'colorDictionary'
+	],
+	#classVars : [
+		'ValueDictionary'
 	],
 	#category : #'MatchIt-Model'
 }
@@ -18,6 +23,12 @@ MtBox class >> createBlue [
 MtBox class >> createGreen [
 
 	^ GreenBox new
+]
+
+{ #category : #'as yet unclassified' }
+MtBox class >> createGreenwith:nim [
+
+	^ GreenBox new value:nim.
 ]
 
 { #category : #'as yet unclassified' }
@@ -39,8 +50,7 @@ MtBox class >> randomLaunch [
 		  BlueBox.
 		  GreenBox.
 		  MagentaBox.
-		  RedBox.
-	 } atRandom new
+		  RedBox } atRandom new
 ]
 
 { #category : #'as yet unclassified' }
@@ -71,9 +81,20 @@ MtBox >> color [
 	SubclassResponsibility 
 ]
 
+{ #category : #accessing }
+MtBox >> color: acolor [
+
+	color := acolor
+]
+
 { #category : #testing }
 MtBox >> hasSameColorAs: aColoredBox [
 	^self color = aColoredBox color
+]
+
+{ #category : #testing }
+MtBox >> isUncoloredBox [
+^false
 ]
 
 { #category : #'as yet unclassified' }
@@ -104,4 +125,12 @@ MtBox >> surface [
 { #category : #accessing }
 MtBox >> surface: aBoxElm [
 	surface := aBoxElm
+]
+
+{ #category : #'as yet unclassified' }
+MtBox >> topBox [
+
+(((self position x) between: 1 and: self board grid width) and: ((self position y-1) between: 1 and: self board grid height)) ifTrue: 
+[^self board grid atColumn: self position x  atRow: self position y -1 ] 
+
 ]

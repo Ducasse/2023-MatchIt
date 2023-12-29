@@ -14,3 +14,9 @@ RedBox class >> color [
 RedBox >> color [ 
 	^ Color red
 ]
+
+{ #category : #accessing }
+RedBox >> value [
+
+	^ 0
+]

@@ -14,14 +14,12 @@ MtBoard class >> createBoardMatrix: aMatrix [
 ]
 
 { #category : #'as yet unclassified' }
-MtBoard class >> level01 [ 
+MtBoard class >> level01 [
 
 	^ self createBoardMatrix: (CTNewArray2D
 			   width: 9
 			   height: 9
-			   tabulate: [ :column :row | MtBox randomLaunch ])
-
-
+			   tabulate: [ :column :row | MtBox createGreenwith: 0 ])
 ]
 
 { #category : #'as yet unclassified' }
@@ -48,9 +46,9 @@ MtBoard class >> mat2x2 [
 ]
 
 { #category : #initialization }
-MtBoard >> clickOnBox: box [ 
+MtBoard >> clickOnBox: box [
 
-	self grid space removeChild: box
+	box ConfigureColor
 ]
 
 { #category : #initialization }
@@ -68,14 +66,30 @@ super initialize
 { #category : #'as yet unclassified' }
 MtBoard >> replaceBox: aList [
 
-	aList do: [ :each | self grid at: each position put: UncoloredBox ] 
+	aList do: [ :each |  
+		| newBox |
+		
+		 grid at: each position x @each position y put: (UncoloredBox new
+			          position: each position x @each position y;
+			          board: self) .] 
 ]
 
 { #category : #'as yet unclassified' }
-MtBoard >> updateBoard: aList [
-aList do: [:each| self grid at: each position put: UncoloredBox  ].
+MtBoard >> updateBoard [
 
-
+	self grid fromBottomToTopFromLeftToRightDo: [ :box |
+		box topBox ifNotNil: [
+			(box isUncoloredBox and: box topBox isUncoloredBox not) ifTrue: [
+				self grid
+					atColumn: box position x
+					atRow: box position y
+					put: box topBox.
+				self grid
+					atColumn: box topBox position x
+					atRow: box topBox position y
+					put: (UncoloredBox new
+					position: box topBox position x @ box topBox position y;
+					board: self) ] ] ]
 ]
 
 { #category : #initialization }
