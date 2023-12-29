@@ -26,12 +26,6 @@ MtBox class >> createGreen [
 ]
 
 { #category : #'as yet unclassified' }
-MtBox class >> createGreenwith:nim [
-
-	^ GreenBox new value:nim.
-]
-
-{ #category : #'as yet unclassified' }
 MtBox class >> createMagenta [
 
 	^ MagentaBox   new

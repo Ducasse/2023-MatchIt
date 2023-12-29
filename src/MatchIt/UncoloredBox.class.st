@@ -34,9 +34,3 @@ super initialize.
 UncoloredBox >> isUncoloredBox [ 
 ^true 
 ]
-
-{ #category : #accessing }
-UncoloredBox >> value [
-
-	^ 0
-]

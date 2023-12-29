@@ -1,16 +1,10 @@
 Class {
 	#name : #GreenBox,
 	#superclass : #MtBox,
-	#category : #'MatchIt-Model'
+	#category : #MatchIt
 }
 
 { #category : #accessing }
-GreenBox class >> color [ 
-^ Color green
-
-]
-
-{ #category : #accessing }
 GreenBox >> color [ 
-	^ Color green
+^Color green
 ]
