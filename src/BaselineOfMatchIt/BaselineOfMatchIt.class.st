@@ -16,7 +16,7 @@ BaselineOfMatchIt >> baseline: spec [
 	spec
 
 		package: 'MatchIt' 
-		with: [ spec requires: #( 'Myg' 'Bloc' ) ];
+		with: [ spec requires: #( 'Myg' ) ];
 		package: 'MatchIt-Tests'
 		with: [ spec requires: #( 'MatchIt' ) ];
 		yourself
