@@ -79,7 +79,8 @@ MtBox >> click [
 
 { #category : #accessing }
 MtBox >> color [
-	SubclassResponsibility 
+
+	^ self subclassResponsibility
 ]
 
 { #category : #accessing }

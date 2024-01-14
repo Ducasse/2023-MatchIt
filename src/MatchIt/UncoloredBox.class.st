@@ -10,9 +10,10 @@ UncoloredBox >> color [
 	^ Color transparent
 ]
 
-{ #category : #accessing }
+{ #category : #initialization }
 UncoloredBox >> initialize [
-super initialize.
+
+	super initialize.
 	value := 0
 ]
 
