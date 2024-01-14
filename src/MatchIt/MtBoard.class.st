@@ -84,7 +84,7 @@ MtBoard >> updateBoard [
 
 	self grid fromBottomToTopFromLeftToRightDo: [ :box |
 		box topBox ifNotNil: [
-			(box isUncoloredBox and: box topBox isUncoloredBox not) ifTrue: [
+			(box isUncoloredBox and: [ box topBox isUncoloredBox not]) ifTrue: [
 				self grid
 					atColumn: box position x
 					atRow: box position y

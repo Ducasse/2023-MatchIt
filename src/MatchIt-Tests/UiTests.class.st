@@ -152,7 +152,7 @@ UiTests >> testTopBox [
      *red  *red *red    blue
      green *red magenta blue"
 
-	| box neighbors |
+	| box |
 	box := field grid at: 2 @ 1.
 	self assert: box topBox isRedBox .
 	self deny: box topBox isBlueBox .
