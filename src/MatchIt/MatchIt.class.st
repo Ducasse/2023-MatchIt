@@ -4,22 +4,21 @@ Class {
 	#category : #'MatchIt-Model'
 }
 
-{ #category : #'as yet unclassified' }
-MatchIt class >> menuBar [ 
+{ #category : #menu }
+MatchIt class >> menuBar [
 
 	| bar |
 	bar := ToMenuBar new
 		       hMatchParent;
 		       vFitContent.
 	bar
-		background: Color orange ;
+		background: Color orange;
 		border: (BlBorder paint: Color veryDarkGray).
 	^ bar
-
 ]
 
-{ #category : #'as yet unclassified' }
-MatchIt class >> menuHelp [ 
+{ #category : #menu }
+MatchIt class >> menuHelp [
 
 	| menu |
 	menu := ToMenu new.
@@ -67,11 +66,11 @@ The game ends when you have cleared all safe cells.
 		space extent: container extent.
 		space show ].
 	^ menu
-
 ]
 
-{ #category : #'as yet unclassified' }
-MatchIt class >> menuLevel [ 
+{ #category : #menu }
+MatchIt class >> menuLevel [
+
 	| menu |
 	menu := ToMenu new.
 	menu label: (ToLabel text: 'Start').
@@ -79,17 +78,17 @@ MatchIt class >> menuLevel [
 		(ToImage inner: (Smalltalk ui icons iconNamed: #solidMenu)).
 	menu addItem:
 		((ToButtonMenuItem new labelText: 'Basic') whenClickedDo: [
-			 MtBoardElement  basicLevel ]).
+			 MtBoardElement basicLevel ]).
 
 	menu addItem:
 		((ToButtonMenuItem new labelText: 'Advanced') whenClickedDo: [
 			 MtBoardElement advancedLevel ]).
 	^ menu
-
 ]
 
 { #category : #'instance creation' }
-MatchIt class >> open [ 
+MatchIt class >> open [
+
 	| space startMenu helpMenu bar message |
 	startMenu := self menuLevel.
 	helpMenu := self menuHelp.
@@ -104,12 +103,10 @@ MatchIt class >> open [
 	space root addChild: bar.
 	space extent: 600 @ 600.
 	space show
-
-
 ]
 
 { #category : #'instance creation' }
-MatchIt class >> openMsg [ 
+MatchIt class >> openMsg [
 
 	| msg |
 	msg := BlElement new background: Color lightOrange.
@@ -118,10 +115,9 @@ MatchIt class >> openMsg [
 		c vertical matchParent ].
 	msg layout: BlFrameLayout new.
 	msg addChild: ((BlTextElement new text:
-			  ((' Welcome to MatchIt SameGame, Have Fun!' asRopedText fontName: 'Phosphate')
-				   fontSize: 30)) constraintsDo: [ :c |
+			  ((' Welcome to MatchIt SameGame, Have Fun!' asRopedText
+				    fontName: 'Phosphate') fontSize: 30)) constraintsDo: [ :c |
 			 c frame horizontal alignCenter.
 			 c frame vertical alignCenter ]).
 	^ msg
-
 ]

@@ -12,22 +12,10 @@ Class {
 	#category : #'MatchIt-UI'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : #'instance creation' }
 MtBoxElement class >> createWithBox: anMtBoxes [
 
 	^ self new box: anMtBoxes
-]
-
-{ #category : #accessing }
-MtBoxElement >> back [
-
-	^ self background
-]
-
-{ #category : #accessing }
-MtBoxElement >> back: aColor [
-
-	self background: aColor
 ]
 
 { #category : #accessing }
@@ -50,22 +38,19 @@ MtBoxElement >> box [
 ]
 
 { #category : #accessing }
-MtBoxElement >> box: anMtBoxes [
+MtBoxElement >> box: aMtBox [
 
-	box := anMtBoxes
+	box := aMtBox
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #clicking }
 MtBoxElement >> click [
-	"this method will be removed later , tthis is just for checking visually "
 
 	| neighbors |
 	neighbors := self box checkNeighbors.
 	neighbors size >= 3 ifTrue: [
 		neighbors do: [ :each |
 			each surface parent removeChild: each surface ] ]
-
-	
 ]
 
 { #category : #initialization }

@@ -5,17 +5,13 @@ Class {
 }
 
 { #category : #accessing }
-RedBox class >> color [ 
-^ Color red 
+RedBox >> color [
 
-]
-
-{ #category : #accessing }
-RedBox >> color [ 
 	^ Color red
 ]
 
 { #category : #testing }
 RedBox >> isRedBox [
-	^true.
+
+	^ true
 ]

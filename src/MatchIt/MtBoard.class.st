@@ -4,16 +4,15 @@ Class {
 	#category : #'MatchIt-Model'
 }
 
-{ #category : #'as yet unclassified' }
-MtBoard class >> createBoardMatrix: aMatrix [ 
+{ #category : #'instance creation' }
+MtBoard class >> createBoardMatrix: aMatrix [
 
 	^ self new
 		  configureGrid: aMatrix;
 		  yourself
-
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #'instance creation' }
 MtBoard class >> level01 [
 
 	^ self createBoardMatrix: (CTNewArray2D
@@ -22,17 +21,16 @@ MtBoard class >> level01 [
 			   tabulate: [ :column :row | MtBox randomLaunch ])
 ]
 
-{ #category : #'as yet unclassified' }
-MtBoard class >> level02 [ 
+{ #category : #'instance creation' }
+MtBoard class >> level02 [
 
 	^ self createBoardMatrix: (CTNewArray2D
 			   width: 16
 			   height: 16
 			   tabulate: [ :column :row | MtBox randomLaunch ])
-
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #'instance creation' }
 MtBoard class >> mat2x2 [
 
 	| matrix |
@@ -45,60 +43,48 @@ MtBoard class >> mat2x2 [
 	^ self createBoardMatrix: matrix
 ]
 
-{ #category : #initialization }
-MtBoard >> clickOnBox: box [
-
-	box ConfigureColor
-]
-
-{ #category : #initialization }
-MtBoard >> height [ 
+{ #category : #accessing }
+MtBoard >> height [
 
 	^ grid height
-]
-
-{ #category : #initialization }
-MtBoard >> initialize [ 
-super initialize
-
 ]
 
 { #category : #testing }
 MtBoard >> isEmpty [
 
-	^self grid contents anySatisfy: [ :box | box isUncoloredBox ]
+	^ self grid contents anySatisfy: [ :box | box isUncoloredBox ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #actions }
 MtBoard >> removeBoxList: aList [
 
 	aList do: [ :each |
-		| newBox |
 		grid at: each position x @ each position y put: (UncoloredBox new
 				 position: each position x @ each position y;
 				 board: self) ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #actions }
 MtBoard >> updateBoard [
 
 	self grid fromBottomToTopFromLeftToRightDo: [ :box |
 		box topBox ifNotNil: [
-			(box isUncoloredBox and: [ box topBox isUncoloredBox not]) ifTrue: [
-				self grid
-					atColumn: box position x
-					atRow: box position y
-					put: box topBox.
-				self grid
-					atColumn: box topBox position x
-					atRow: box topBox position y
-					put: (UncoloredBox new
-					position: box topBox position x @ box topBox position y;
-					board: self) ] ] ]
+			(box isUncoloredBox and: [ box topBox isUncoloredBox not ])
+				ifTrue: [
+					self grid
+						atColumn: box position x
+						atRow: box position y
+						put: box topBox.
+					self grid
+						atColumn: box topBox position x
+						atRow: box topBox position y
+						put: (UncoloredBox new
+								 position: box topBox position x @ box topBox position y;
+								 board: self) ] ] ]
 ]
 
-{ #category : #initialization }
-MtBoard >> width [ 
+{ #category : #accessing }
+MtBoard >> width [
 
 	^ grid width
 ]

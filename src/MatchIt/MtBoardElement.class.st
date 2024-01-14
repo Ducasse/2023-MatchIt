@@ -7,19 +7,19 @@ Class {
 	#category : #'MatchIt-UI'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : #'specific opening' }
 MtBoardElement class >> advancedLevel [
 
 	^ self launchWith: MtBoard level02
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #'specific opening' }
 MtBoardElement class >> basicLevel [
 
 	^ self launchWith: MtBoard level01
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #opening }
 MtBoardElement class >> launchWith: model [
 
 	| anElm space |
@@ -54,7 +54,7 @@ MtBoardElement >> board: aBoard [
 		| boxElm |
 		boxElm := (MtBoxElement createWithBox: aBox)
 			          board: aBoard;
-			          back: aBox color;
+			          background: aBox color;
 			          positionBoard: aBox position.
 		aBox surface: boxElm.
 		self addChild: boxElm ]

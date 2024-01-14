@@ -1,15 +1,17 @@
 Class {
 	#name : #GreenBox,
 	#superclass : #MtBox,
-	#category : #MatchIt
+	#category : #'MatchIt-Model'
 }
 
 { #category : #accessing }
-GreenBox >> color [ 
-^Color green
+GreenBox >> color [
+
+	^ Color green
 ]
 
 { #category : #testing }
 GreenBox >> isGreenBox [
-	^true
+
+	^ true
 ]

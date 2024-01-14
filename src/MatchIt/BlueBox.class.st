@@ -5,11 +5,13 @@ Class {
 }
 
 { #category : #accessing }
-BlueBox >> color [ 
-^Color blue
+BlueBox >> color [
+
+	^ Color blue
 ]
 
 { #category : #testing }
 BlueBox >> isBlueBox [
-^true
+
+	^ true
 ]
