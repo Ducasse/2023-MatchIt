@@ -19,7 +19,7 @@ MtBoard class >> level01 [
 	^ self createBoardMatrix: (CTNewArray2D
 			   width: 9
 			   height: 9
-			   tabulate: [ :column :row | MtBox createGreenwith: 0 ])
+			   tabulate: [ :column :row | MtBox randomLaunch ])
 ]
 
 { #category : #'as yet unclassified' }
